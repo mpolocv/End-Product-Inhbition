@@ -1,6 +1,6 @@
 %%%%%%%%%%%%Generation of plots through Design Space Toolbox V 3.0 (DST3).
 
-%%%%%%%%%%%% Rub DST3 on your computer: https://savageaulab.wordpress.com/docker-image-for-the-design-space-toolbox-v3/
+%%%%%%%%%%%% Run DST3 on your computer: https://savageaulab.wordpress.com/docker-image-for-the-design-space-toolbox-v3/
 
 %%%%Examples of plots for n=3,4 and 5
 
