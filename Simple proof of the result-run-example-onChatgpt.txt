@@ -2,7 +2,7 @@
 Una consulta, ¿Una base de Hilbert de vectores lattice unitarios (1,0,0,0,0) y (0,0,1,0,0) de un cono dual lattice, puede ser extendida a una base de 
 Hilbert que consista de la matríz identidad permutada?.
 
-
+Respuesta Chatgpt:
 Para determinar si una base de Hilbert de un cono dual lattice, que contiene los vectores unitarios 
 
 (1,0,0,0,0) y (0,0,1,0,0), puede extenderse para formar una base de Hilbert equivalente a una matriz identidad permutada, sigamos este análisis:
