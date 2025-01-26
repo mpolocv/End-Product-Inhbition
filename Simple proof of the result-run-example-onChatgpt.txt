@@ -1,0 +1,67 @@
+%%%%%Comprobación simple del resultado en Chatgpt, ejemplo para n=5.
+Una consulta, ¿Una base de Hilbert de vectores lattice unitarios (1,0,0,0,0) y (0,0,1,0,0) de un cono dual lattice, puede ser extendida a una base de 
+Hilbert que consista de la matríz identidad permutada?.
+
+
+Para determinar si una base de Hilbert de un cono dual lattice, que contiene los vectores unitarios 
+
+(1,0,0,0,0) y (0,0,1,0,0), puede extenderse para formar una base de Hilbert equivalente a una matriz identidad permutada, sigamos este análisis:
+
+1. Características de una base de Hilbert
+Una base de Hilbert de un lattice cone es el conjunto mínimo de generadores enteros no negativos que generan todos los puntos del cone de manera única, mediante combinaciones lineales enteras no negativas. En este caso:
+
+El cone dual ya incluye dos vectores unitarios: 
+(1,0,0,0,0) y (0,0,1,0,0).
+Queremos saber si se puede extender con otros vectores unitarios para que la base de Hilbert sea equivalente a una matriz identidad permutada.
+La matriz identidad permutada es una matriz con exactamente un 
+1
+1 en cada fila y cada columna (como una matriz identidad reorganizada), lo que implica que todos los vectores de la base deben ser unitarios y ortogonales.
+
+2. Requisitos para extender la base
+Para que (1,0,0,0,0) y (0,0,1,0,0) puedan extenderse a formar una matriz identidad permutada, debemos incluir suficientes vectores unitarios adicionales
+para completar una base de 
+𝑅
+5
+R 
+5
+ . Esto requiere:
+
+Ortogonalidad: Cada vector agregado debe ser linealmente independiente de los vectores ya incluidos.
+Unicidad: Los nuevos vectores deben ser unitarios, de la forma 
+(0,…,1,…,0), y no pueden solaparse con los vectores existentes.
+3. Construcción de la extensión
+Dado que ya tenemos los vectores (1,0,0,0,0) y 
+(0,0,1,0,0), podemos intentar completar la base con los restantes vectores unitarios de 
+𝑍
+5
+Z 
+5
+ :
+
+
+(0,1,0,0,0),(0,0,0,1,0),(0,0,0,0,1).
+Al incluir estos vectores, obtenemos el conjunto:
+
+{(1,0,0,0,0),(0,1,0,0,0),(0,0,1,0,0),(0,0,0,1,0),(0,0,0,0,1)}.
+Este conjunto satisface las propiedades de una base de Hilbert porque:
+
+Es linealmente independiente.
+Genera todos los puntos enteros del cone dual mediante combinaciones no negativas de los vectores.
+Es equivalente a una matriz identidad permutada.
+4. Verificación
+Para confirmar que esta extensión forma una base de Hilbert válida:
+
+Generación del cone dual: Todo vector en el cone dual puede representarse como una combinación no negativa de los vectores unitarios.
+Completitud: Dado que se utilizan los cinco vectores unitarios de 
+𝑍
+5
+Z 
+5
+ , no falta ningún componente en la representación del cone.
+Propiedad de la matriz identidad permutada: La base es exactamente una permutación de la matriz identidad estándar, con cada fila y columna teniendo exactamente un 
+1
+1.
+5. Conclusión
+Sí, la base de Hilbert inicial formada por los vectores lattice unitarios (1,0,0,0,0) y (0,0,1,0,0) puede extenderse para formar una base de Hilbert 
+equivalente a una matriz identidad permutada. La extensión simplemente agrega los vectores unitarios restantes en 𝑅5R 5(0,1,0,0,0), (0,0,0,1,0), y 
+(0,0,0,0,1).
