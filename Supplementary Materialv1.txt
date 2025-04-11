@@ -1,62 +1,426 @@
-﻿Supplementary Material: Step 1 and Step 2 (Pipeline) for the case length of the pathway n=9.
+﻿Supplementary Material: STEP 1 AND STEP 2 (Pipeline) for the case length of the pathway n=9.
 Inputs files: You need to create the following file texts, as follows:
-file 1:
-f=”Cone9_1.txt”
-1 0 0 0 0 0 0 0 0 0
-1 0 0 0 0 0 0 0 -1 1
-0 0 0 0 0 0 0 0 1 0
-0 0 0 0 0 0 0 0 0 1    
+
+TEXT FILES:
+f=”Cone7_1.txt”
+1 0 0 0 0 0 0 0 
+1 0 0 0 0 0 -1 1
+0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 1    
 file 2:
-f=”Cone9_2.txt”
-1 0 0 0 0 0 0 0 0 0
-1 -1 0 0 0 0 0 0 0 0
-0 1 0 0 0 0 0 0 0 0 
-f=”Cone9_3.txt”
-0 1 0 0 0 0 0 0 0 0
-0 1 -1 0 0 0 0 0 0 0
-0 0 1 0 0 0 0 0 0 0
-f=”Cone9_4.txt”
-0 0 1 0 0 0 0 0 0 0
-0 0 1 -1 0 0 0 0 0 0
-0 0 0 1 0 0 0 0 0 0 
+f=”Cone7_2.txt”
+1 0 0 0 0 0 0 0 
+1 -1 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 
+f=”Cone7_3.txt”
+0 1 0 0 0 0 0 0 
+0 1 -1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 
+f=”Cone7_4.txt”
+0 0 1 0 0 0 0 0 
+0 0 1 -1 0 0 0 0 
+0 0 0 1 0 0 0 0 
 
 
-f=”Cone9_5.txt”
-0 0 0 1 0 0 0 0 0 0
-0 0 0 1 -1 0 0 0 0 0
-0 0 0 0 1 0 0 0 0 0 
+f=”Cone7_5.txt”
+0 0 0 1 0 0 0 0 
+0 0 0 1 -1 0 0 0 
+0 0 0 0 1 0 0 0 
 
 
-f=”Cone9_6.txt”
-0 0 0 0 1 0 0 0 0 0
-0 0 0 0 1 -1 0 0 0 0
-0 0 0 0 0 1 0 0 0 0 
-f=”Cone9_7.txt”
-0 0 0 0 0 1 0 0 0 0
-0 0 0 0 0 1 -1 0 0 0
-0 0 0 0 0 0 1 0 0 0
+f=”Cone7_6.txt”
+0 0 0 0 1 0 0 0 
+0 0 0 0 1 -1 0 0 
+0 0 0 0 0 1 0 0  
+f=”Cone7_7.txt”
+0 0 0 0 0 1 0 0 
+0 0 0 0 0 1 -1 0 
+0 0 0 0 0 0 1 0 
 
-
-f=”Cone9_8.txt”
-0 0 0 0 0 0 1 0 0 0
-0 0 0 0 0 0 1 -1 0 0
-0 0 0 0 0 0 0 1 0 0
-f=”Cone9_9.txt”
-0 0 0 0 0 0 0 1 0 0
-0 0 0 0 0 0 0 1 -1 0
-0 0 0 0 0 0 0 0 1 0 
-
-
-f=”Cone9_10.txt”
-0 0 0 0 0 0 0 0 1 0
-0 0 0 0 0 0 0 0 1 -1
-0 0 0 0 0 0 0 0 0 1 
+f=”Cone7_8.txt”
+0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 1 -1 
+0 0 0 0 0 0 0 1 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STEP3 (PIPELINE) ORTHOGONAL CONES (PYTHON SCRIPTS)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import numpy as np
+from scipy.stats import boltzmann
+import glob
+import os
+beta= 1.6666666666666667
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Cone7k1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_1.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[1],[2],[0])
+                                    A==np.put(A[0],[2],[0])
+                                    A==np.put(A[0],[3],[0])
+                                    A==np.put(A[0],[4],[0])
+                                    A==np.put(A[0],[5],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[3],[0])
+                                    A==np.put(A[1],[4],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[2],[0])
+                                    A==np.put(A[2],[3],[0])
+                                    A==np.put(A[2],[4],[0])
+                                    A==np.put(A[2],[7],[0])
+                                    A==np.put(A[3],[1],[0])
+                                    A==np.put(A[3],[2],[0])
+                                    A==np.put(A[3],[3],[0])
+                                    A==np.put(A[3],[4],[0])
+                                    A==np.put(A[3],[6],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7k2  %%%%%%%%%%%%%%%%%%
 
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_2.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[4],[0])
+                                    A==np.put(A[0],[3],[0])
+                                    A==np.put(A[0],[5],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[0],[2],[0])
+                                    A==np.put(A[1],[3],[0])
+                                    A==np.put(A[1],[4],[0])
+                                    A==np.put(A[1],[5],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[3],[0])
+                                    A==np.put(A[2],[4],[0])
+                                    A==np.put(A[2],[5],[0])
+                                    A==np.put(A[2],[6],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7k3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_3.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[3],[0])
+                                    A==np.put(A[0],[4],[0])
+                                    A==np.put(A[0],[5],[0])
+                                    A==np.put(A[0],[6],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[4],[0])
+                                    A==np.put(A[1],[5],[0])
+                                    A==np.put(A[1],[6],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[0],[0])
+                                    A==np.put(A[2],[4],[0])
+                                    A==np.put(A[2],[5],[0])
+                                    A==np.put(A[2],[6],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7k4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_4.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[0],[0])
+                                    A==np.put(A[0],[4],[0])
+                                    A==np.put(A[0],[5],[0])
+                                    A==np.put(A[0],[6],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[0],[0])
+                                    A==np.put(A[1],[5],[0])
+                                    A==np.put(A[1],[6],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[0],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[5],[0])
+                                    A==np.put(A[2],[6],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7k5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_5.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[6],[0])
+                                    A==np.put(A[0],[0],[0])
+                                    A==np.put(A[0],[1],[0])
+                                    A==np.put(A[0],[5],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[0],[0])
+                                    A==np.put(A[1],[1],[0])
+                                    A==np.put(A[1],[6],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[0],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[2],[0])
+                                    A==np.put(A[2],[6],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7K6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_6.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[0],[0])
+                                    A==np.put(A[0],[2],[0])
+                                    A==np.put(A[0],[1],[0])
+                                    A==np.put(A[0],[6],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[1],[0])
+                                    A==np.put(A[1],[2],[0])
+                                    A==np.put(A[1],[6],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[2],[0])
+                                    A==np.put(A[2],[3],[0])
+                                    A==np.put(A[2],[6],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7K7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_7.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[1],[0])
+                                    A==np.put(A[0],[2],[0])
+                                    A==np.put(A[0],[3],[0])
+                                    A==np.put(A[0],[6],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[1],[0])
+                                    A==np.put(A[1],[2],[0])
+                                    A==np.put(A[1],[3],[0])
+                                    A==np.put(A[1],[7],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[2],[0])
+                                    A==np.put(A[2],[3],[0])
+                                    A==np.put(A[2],[4],[0])
+                                    A==np.put(A[2],[7],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 7k8 (Constraint)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def Cone(n):
+    #A=np.loadtxt("Matrix.txt")
+    lambda_, N =0.4166666666666667, 19
+    # lambda_, N = 0.29, 9
+   # lambda_, N = 0.29, 17
+   # lambda_, N = 0.35, 9
+   #  lambda_, N = 0.8, 19
+   #  lambda_, N = 0.45, 19
+    r=0
+ #   alist = [0]
+    while r < n  :
+          r=r+1
+          A=np.loadtxt("Cone7k_8.txt")
+          for j in range(3):
+                for i in range(8):
+                      if A[j].item(i)!=0:
+                              print(np.put(A[j],[i],[0]))
+                      elif A[j].item(i)==0:
+                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
+                                    A==np.put(A[0],[1],[0])
+                                    A==np.put(A[0],[2],[0])
+                                    A==np.put(A[0],[3],[0])
+                                    A==np.put(A[0],[4],[0])
+                                    A==np.put(A[0],[7],[0])
+                                    A==np.put(A[1],[1],[0])
+                                    A==np.put(A[1],[2],[0])
+                                    A==np.put(A[1],[3],[0])
+                                    A==np.put(A[1],[4],[0])
+                                    A==np.put(A[2],[1],[0])
+                                    A==np.put(A[2],[2],[0])
+                                    A==np.put(A[2],[3],[0])
+                                    A==np.put(A[2],[4],[0])
+                                    A==np.put(A[2],[6],[0])
+                                  print(A)
+                                  np.savetxt('{}Cone5n1_c3.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 8 cone 3'.format(r), fmt="%d", footer='', comments='')
+                                 # if r!=2*r:      
+                                  #   alist = []
+                                 #    alist.append(A)
+                                  #   arr = np.array(alist)
+                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
+                      else:
+                                   print(np.put(A[j],[i],[-1]))
+          r=r+1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5 END FOR COMPUTING ORTHOGONAL CONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -64,615 +428,6 @@ f=”Cone9_10.txt”
 
 
 %%% Python scripts for the generation of orthogonal cones.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Con 9n_1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-import numpy as np
-from scipy.stats import boltzmann
-import glob
-import os
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=4, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[2],[1],[0])
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0])
-                                  A==np.put(A[2],[6],[0]) 
-                                  A==np.put(A[2],[9],[0])
-                                  A==np.put(A[3],[8],[0]) 
-                                  A==np.put(A[3],[1],[0]) 
-                                  A==np.put(A[3],[2],[0]) 
-                                  A==np.put(A[3],[3],[0]) 
-                                  A==np.put(A[3],[4],[0]) 
-                                  A==np.put(A[3],[5],[0])
-                                  A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA91.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 4'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Con 9n_2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[1],[7],[0])
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0]) 
-                                  A==np.put(A[2],[6],[0]) 
-                                  A==np.put(A[2],[7],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA92.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 9n_3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[1],[7],[0])
-                                  A==np.put(A[1],[8],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0]) 
-                                  A==np.put(A[2],[6],[0]) 
-                                  A==np.put(A[2],[7],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA93.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 9n_4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[1],[7],[0])
-                                  A==np.put(A[1],[8],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[5],[0]) 
-                                  A==np.put(A[2],[6],[0]) 
-                                  A==np.put(A[2],[7],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA94.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone 9n_5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[1],[7],[0])
-                                  A==np.put(A[1],[8],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[6],[0]) 
-                                  A==np.put(A[2],[7],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA95.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone9n_6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[7],[0])
-                                  A==np.put(A[1],[8],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[7],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA96.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone9n_7   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[7],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[8],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[8],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA97.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone9n_8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[8],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[0],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0])
-                                  A==np.put(A[2],[9],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA98.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cones 9n_9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[0],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[1],[0],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[9],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0])
-                                  A==np.put(A[2],[6],[0])
-                                  A==np.put(A[2],[9],[0]) 
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA99.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Cone9n_10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-def Cone(n, lambda_, N, f, m, k):
-    #A=np.loadtxt("Matrix.txt")
-    #lambda_, N = 0.10416666666666667, 19
-    # lambda_, N = 0.29, 9
-   # lambda_, N = 0.29, 17
-   # lambda_, N = 0.35, 9
-   #  lambda_, N = 0.8, 19
-   #  lambda_, N = 0.45, 19
-    r=0
- #   alist = [0], m=3, k=10
-    while r < n  :
-          r=r+1
-          A=np.loadtxt(f)
-          for j in range(m):
-                for i in range(k):
-                      if A[j].item(i)!=0:
-                              print(np.put(A[j],[i],[0]))
-                      elif A[j].item(i)==0:
-                                  print(np.put(A[j],[i],[boltzmann.rvs(lambda_, N, size=1)]))
-                                  A==np.put(A[0],[9],[0])
-                                  A==np.put(A[0],[1],[0])
-                                  A==np.put(A[0],[2],[0])
-                                  A==np.put(A[0],[3],[0])
-                                  A==np.put(A[0],[4],[0])
-                                  A==np.put(A[0],[5],[0])
-                                  A==np.put(A[0],[6],[0])
-                                  A==np.put(A[1],[1],[0])
-                                  A==np.put(A[1],[2],[0])
-                                  A==np.put(A[1],[3],[0])
-                                  A==np.put(A[1],[4],[0])
-                                  A==np.put(A[1],[5],[0])
-                                  A==np.put(A[1],[6],[0])
-                                  A==np.put(A[2],[1],[0]) 
-                                  A==np.put(A[2],[2],[0]) 
-                                  A==np.put(A[2],[3],[0]) 
-                                  A==np.put(A[2],[4],[0]) 
-                                  A==np.put(A[2],[5],[0])
-                                  A==np.put(A[2],[6],[0])
-                                  A==np.put(A[2],[8],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[1],[0])
-                                  #A==np.put(A[3],[4],[1])
-                                  #A==np.put(A[3],[6],[0])
-                                  #A==np.put(A[1],[5],[0])
-                                  #A==np.put(A[4],[3],[0])
-                                  print(A)
-                                  np.savetxt( '{}TF_DNA910.in'.format(r), A, delimiter=" ", newline=' ', header='amb_space 10 cone 3'.format(r), fmt="%d", footer='', comments='')
-                                 # if r!=2*r:      
-                                  #   alist = []
-                                 #    alist.append(A)
-                                  #   arr = np.array(alist)
-                                     #np.savetxt( '{}MATRIX_DUAL_CONE_SIMB.txt'.format(2*r-1), A, delimiter="  " , fmt="%d")
-                      else:
-                                   print(np.put(A[j],[i],[-1]))
-          r=r+1
 
 
 %%%% Generation of Geometric Generators (Hilbert Basis) trough Normaliz %%%%%
