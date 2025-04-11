@@ -1,4 +1,4 @@
-﻿Supplementary Material:
+﻿Supplementary Material: Step 1 and Step 2 (Pipeline) for the case length of the pathway n=9.
 Inputs files: You need to create the following file texts, as follows:
 file 1:
 f=”Cone9_1.txt”
