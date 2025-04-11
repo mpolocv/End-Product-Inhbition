@@ -6,7 +6,8 @@ STEP 1: FOR EXAMPLE POWER LAW AND EXPONENT SPACE FOR X1: (dX_1)/dt=D^(-1) α_MAX
 
 ADN ITS EXPONENT SPACE IS GIVEN BY: (1,0,0,0,0,0,0) THIRD MONOMIAL, (0,0,0,0,0,0,g, -1) second monomial, 
 (0,0,0,0,0,0,0,-1) first monomial. Now, we take substractions pairwise to build a convex geometry, called in the toric geometry literature like a lattice-cone. Thus, we obtained the first lattice cone Cone7_1.txt, similars computations are made
-for: X2, X3, X4, X5, X6, X7 AND EQUATIONS:
+for: X2, X3, X4, X5, X6, X7 AND EQUATIONS: (dX_2)/dt=α_2 X_1- β_2 X_2; (dX_3)/dt=α_3 X_2- β_3 X_3; (dX_4)/dt=α_4 X_3- β_4 X_4; (dX_5)/dt=α_5 X_4- β_5 X_4, ETC...
+
 TEXT FILES: STEP 2.
 
 f=”Cone7_1.txt”
@@ -48,8 +49,9 @@ f=”Cone7_8.txt”
 0 0 0 0 0 0 1 0 
 0 0 0 0 0 0 1 -1 
 0 0 0 0 0 0 0 1 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Python Script: Function.
+Cone(r, lambda_, N, f, m, k)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STEP3 (PIPELINE) ORTHOGONAL CONES (PYTHON SCRIPTS)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import numpy as np
@@ -428,47 +430,35 @@ def Cone(n):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5 END FOR COMPUTING ORTHOGONAL CONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+********************************OUTPUT FOR THOSE SCRIPTS ARE IN THE OUT_TF_DNA7n.zip **********************************
 
-
-
-
-
-%%% Python scripts for the generation of orthogonal cones.
+####################################################################################################################################################  **STEP 4 COMPUTING GEOMETRIC GENERATORS FOR MONOIDS (HILBERT BASIS) ON PLATFORM NORMALIZ*****#######
 
 
 %%%% Generation of Geometric Generators (Hilbert Basis) trough Normaliz %%%%%
 # Type on the web page: https://www.normaliz.uni-osnabrueck.de/
 #  After click on https://mybinder.org/v2/gh/Normaliz/NormalizJupyter/master
 # ONCE THERE ON THE ONLINE PLATFORM, YOU OPEN A NEW UBUNTU CONSOLE AND YOU #WRITE THE FOLLOWING LINES
-# THE NORMALIZ WILL BE RUNNING ONLINE AND YOU WILL GET A DATASET OF .OUT FILES. #THEY CONTAIN THE GENERATORS OF HILBERT BASIS FOR YOUR LATTICE-CONES.
+# THE NORMALIZ WILL BE RUNNING ONLINE AND YOU WILL GET A DATASET OF OUT FILES. #THEY CONTAIN THE GENERATORS OF HILBERT BASIS FOR YOUR LATTICE-CONES.
 # 
 
 
 import glob
 import os
 
-
 for f in glob.glob("*TF_DNA81.in"):
          os.system(" ./normaliz "+f+" ")
-
 
 cat *TF_DNA81.out >> OUT_TF_DNA81.txt
 
 
-####################################################################################################################################################
-
-
 #IN THE SAME PLATFORM ONLINE https://mybinder.org/v2/gh/Normaliz/NormalizJupyter/master, IN #A NEW UBUNTU CONSOLE YOU CAN GENERATE A ONE FILE FOR
 # GENERATORS OF THE MONOID, AS FOLLOWS WITH THE CAT LINUX COMMAND.
-
-
 #FOR EXAMPLE:
-
-
 marco@marco-desktop:~/Downloads/normaliz-3.2.0Linux64/normaliz-3.2.0/Cones.in$ cat *TF_DNA63.out >> OUT_TF_DNA6.txt
 
 
-
+%%%%%%%%%%%%%%%******** STEP 5 GENOTYPE ARITHMETIC WAS COMPUTED FOR ALL CASES IN THE LAST COLUMN FIGURES 5 AND 6 IN THE MANUSCRIPT*******************%%%%%%%
 
 
 
@@ -499,306 +489,3 @@ marco@marco-desktop:~/Downloads/normaliz-3.2.0Linux64/normaliz-3.2.0/Cones.in$ c
 
   
 
-Power Law Formalism,
-for pathway length n=9.
-Step 1.
-	Lattice-Cones from Exponent-Space.
-Step 2.
-	Ortoghonal Matrices. Step3
-Evironment Topology.
-Python Script: Function.
-Cone(r, lambda_, N, f, m, k)
-	Monoid and Generators. Step 4
-Permutations of indetity matrix.
-	Genotype Arithmetic.
-We only chose positive constraints. Step 5.
-l= (1,0,0,0,0,0,0,0,-g,1).
-	
-	Con(X_1)=
-1 0 0 0 0 0 0 0 0  0
-1 0 0 0 0 0 0 0 -g 1
-0 0 0 0 0 0 0 0 g  0
-0 0 0 0 0 0 0 0 0  -1
-	r= 200, random dual cones.
-Lambda_=Energy, 1.5 – 2.0.
-N=19, number of basis pair.
-f=“Cone9_1.txt”, input file.
-Size of matrix, m=4, k=10.
-	1000000000 =  H1
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H1, l> ≥ 0.
--g ≥ 0,  1 ≥ 0, 1 ≥ 0,
-2 –g  ≥ 0. Range in local biochemical
-environment.
-	(dX_2)/dt=α_2 X_1- β_2 X_2.
-	Con(X_2)=
-1 0 0 0 0 0 0 0 0  0
-1 -1 0 0 0 0 0 0 0 0
-0 1 0 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_2.txt”.
-	0100000000 = H2
-1000000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H2, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_3)/dt=α_3 X_2- β_3 X_3.
-	Con(X_3)=
-0 1 0 0 0 0 0 0 0  0
-0 1 -1 0 0 0 0 0 0 0
-0 0 1 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_3.txt”.
-	1000000000 =H3
-0010000000
-0100000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H3, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_4)/dt=α_4 X_3- β_4 X_4.
-	Con(X_4)=
-0 0 1 0 0 0 0 0 0  0
-0 0 1 -1 0 0 0 0 0 0
-0 0 0 1 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_4.txt”.
-	0000001000 = H4
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-1000000000
-0000000100
-0000000010
-0000000001
-	<H4, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	
-
-Power Law Formalism,
-for pathway length n=9.
-Step 1.
-	Lattice-Cones from Exponent-Space.
-Step 2.
-	Ortoghonal Matrices. Step3
-Evironment Topology.
-Python Script: Function.
-Cone(r, lambda_, N, f, m, k)
-	Monoid and Generators. Step 4
-Permutations of indetity matrix.
-	Genotype Arithmetic.
-We only chose positive constraints. Step 5.
-l= (1,0,0,0,0,0,0,0,-g,1).
-	(dX_1)/dt=D^(-1) α_MAX+D^(-1) α_MIN∗ K_1^(-g) X_1^g-β_1 X_1.
-	Con(X_1)=
-1 0 0 0 0 0 0 0 0  0
-1 0 0 0 0 0 0 0 -g 1
-0 0 0 0 0 0 0 0 g  0
-0 0 0 0 0 0 0 0 0  -1
-	r= 200, random dual cones.
-Lambda_=Energy, 1.5 – 2.0.
-N=19, number of basis pair.
-f=“Cone9_1.txt”, input file.
-Size of matrix, m=4, k=10.
-	1000000000 =  H1
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H1, l> ≥ 0.
--g ≥ 0,  1 ≥ 0, 1 ≥ 0,
-2 –g  ≥ 0. Range in local biochemical
-environment.
-	(dX_2)/dt=α_2 X_1- β_2 X_2.
-	Con(X_2)=
-1 0 0 0 0 0 0 0 0  0
-1 -1 0 0 0 0 0 0 0 0
-0 1 0 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_2.txt”.
-	0100000000 = H2
-1000000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H2, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_3)/dt=α_3 X_2- β_3 X_3.
-	Con(X_3)=
-0 1 0 0 0 0 0 0 0  0
-0 1 -1 0 0 0 0 0 0 0
-0 0 1 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_3.txt”.
-	1000000000 =H3
-0010000000
-0100000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H3, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_4)/dt=α_4 X_3- β_4 X_4.
-	Con(X_4)=
-0 0 1 0 0 0 0 0 0  0
-0 0 1 -1 0 0 0 0 0 0
-0 0 0 1 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_4.txt”.
-	0000001000 = H4
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-1000000000
-0000000100
-0000000010
-0000000001
-	<H4, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	
-
-
-
-Power Law Formalism,
-for pathway length n=9.
-Step 1.
-	Lattice-Cones from Exponent-Space.
-Step 2.
-	Ortoghonal Matrices. Step3
-Evironment Topology.
-Python Script: Function.
-Cone(r, lambda_, N, f, m, k)
-	Monoid and Generators. Step 4
-Permutations of indetity matrix.
-	Genotype Arithmetic.
-We only chose positive constraints. Step 5.
-l= (1,0,0,0,0,0,0,0,-g,1).
-	(dX_1)/dt=D^(-1) α_MAX+D^(-1) α_MIN∗ K_1^(-g) X_1^g-β_1 X_1.
-	Con(X_1)=
-1 0 0 0 0 0 0 0 0  0
-1 0 0 0 0 0 0 0 -g 1
-0 0 0 0 0 0 0 0 g  0
-0 0 0 0 0 0 0 0 0  -1
-	r= 200, random dual cones.
-Lambda_=Energy, 1.5 – 2.0.
-N=19, number of basis pair.
-f=“Cone9_1.txt”, input file.
-Size of matrix, m=4, k=10.
-	1000000000 =  H1
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H1, l> ≥ 0.
--g ≥ 0,  1 ≥ 0, 1 ≥ 0,
-2 –g  ≥ 0. Range in local biochemical
-environment.
-	(dX_2)/dt=α_2 X_1- β_2 X_2.
-	Con(X_2)=
-1 0 0 0 0 0 0 0 0  0
-1 -1 0 0 0 0 0 0 0 0
-0 1 0 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_2.txt”.
-	0100000000 = H2
-1000000000
-0010000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H2, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_3)/dt=α_3 X_2- β_3 X_3.
-	Con(X_3)=
-0 1 0 0 0 0 0 0 0  0
-0 1 -1 0 0 0 0 0 0 0
-0 0 1 0 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_3.txt”.
-	1000000000 =H3
-0010000000
-0100000000
-0001000000
-0000100000
-0000010000
-0000001000
-0000000100
-0000000010
-0000000001
-	<H3, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
-	(dX_4)/dt=α_4 X_3- β_4 X_4.
-	Con(X_4)=
-0 0 1 0 0 0 0 0 0  0
-0 0 1 -1 0 0 0 0 0 0
-0 0 0 1 0 0 0 0 0  0
-	Equal parameters above with input file.
-f=“Cone9_4.txt”.
-	0000001000 = H4
-0100000000
-0010000000
-0001000000
-0000100000
-0000010000
-1000000000
-0000000100
-0000000010
-0000000001
-	<H4, l> ≥ 0.
-2-g ≥ 0. Range in local
-biochemical environment.
