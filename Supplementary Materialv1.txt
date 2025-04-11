@@ -1,32 +1,39 @@
-﻿Supplementary Material: STEP 1 AND STEP 2 (Pipeline) for the case length of the pathway n=9.
+﻿Supplementary Material: STEP 1 AND STEP 2 (Pipeline) for the case length of the pathway n=7.
+	
 Inputs files: You need to create the following file texts, as follows:
 
-TEXT FILES:
+STEP 1: FOR EXAMPLE POWER LAW AND EXPONENT SPACE FOR X1: (dX_1)/dt=D^(-1) α_MAX+D^(-1) α_MIN∗ K_1^(-g) X_7^g-β_1 X_1.
+
+ADN ITS EXPONENT SPACE IS GIVEN BY: (1,0,0,0,0,0,0) THIRD MONOMIAL, (0,0,0,0,0,0,g, -1) second monomial, 
+(0,0,0,0,0,0,0,-1) first monomial. Now, we take substractions pairwise to build a convex geometry, called in the toric geometry literature like a lattice-cone. Thus, we obtained the first lattice cone Cone7_1.txt, similars computations are made
+for: X2, X3, X4, X5, X6, X7 AND EQUATIONS:
+TEXT FILES: STEP 2.
+
 f=”Cone7_1.txt”
 1 0 0 0 0 0 0 0 
 1 0 0 0 0 0 -1 1
 0 0 0 0 0 0 1 0
 0 0 0 0 0 0 0 1    
-file 2:
+
 f=”Cone7_2.txt”
 1 0 0 0 0 0 0 0 
 1 -1 0 0 0 0 0 0 
 0 1 0 0 0 0 0 0 
+
 f=”Cone7_3.txt”
 0 1 0 0 0 0 0 0 
 0 1 -1 0 0 0 0 0 
 0 0 1 0 0 0 0 0 
+
 f=”Cone7_4.txt”
 0 0 1 0 0 0 0 0 
 0 0 1 -1 0 0 0 0 
 0 0 0 1 0 0 0 0 
 
-
 f=”Cone7_5.txt”
 0 0 0 1 0 0 0 0 
 0 0 0 1 -1 0 0 0 
 0 0 0 0 1 0 0 0 
-
 
 f=”Cone7_6.txt”
 0 0 0 0 1 0 0 0 
@@ -49,7 +56,6 @@ import numpy as np
 from scipy.stats import boltzmann
 import glob
 import os
-beta= 1.6666666666666667
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Cone7k1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 def Cone(n):
@@ -464,49 +470,7 @@ marco@marco-desktop:~/Downloads/normaliz-3.2.0Linux64/normaliz-3.2.0/Cones.in$ c
 
 
 
-%%%%%%%%%%%%%% Script for Quantitative Phenotypes in Design Space Toolbox V. 3.0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-b4=2, KR=1.5, a1=1.5, a0=2, a3=1.5, a2=2, b1=1.5, b2=1, b3=1.5, a4=2.5,
-inp=InteractiveInput(name='End-Product-Inhibition4', 
-                    
-equations=['X1. = (a0)*(DR^-1) + (0.00000000372)*(a1)*(KR^-g)*(X3^g)*(DR^-1)  - b1*(X1)^h',
-                                'X2. =(a2)*(X1) - b2*(X2)',
-                                'X3. =(a3)*(X2) - b3*(X3)',
-                                '0 = 1 + (KR^-g)*(X3^g) - DR'],
-                     auxiliary_variables=['DR'],
-                     kinetic_orders=['g=8', 'h=1'],
-                     constraints = ['KR >1'],
-                     xaxis='a0',
-                     yaxis='b3',
-                    )
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-b4=2, KR=1.5, a1=1.5, a0=2, a3=1.5, a2=2, b1=1.5, b2=1, b3=1.5, a4=2.5,
-inp=InteractiveInput(name='End-Product-Inhibition4', 
-equations=['X1. = (a0)*(DR^-1) + (0.00000000372)*(a1)*(KR^-g)*(X4^g)*(DR^-1)  - b1*(X1)^h',
-                                'X2. =(a2)*(X1) - b2*(X2)',
-                                'X3. =(a3)*(X2) - b3*(X3)',
-                                'X4. =(a4)*(X2) - b4*(X3)',
-                                '0 = 1 + (KR^-g)*(X4^g) - DR'],
-                     auxiliary_variables=['DR'],
-                     kinetic_orders=['g=4', 'h=1'],
-                     constraints = ['KR >1'],
-                     xaxis='a0',
-                     yaxis='b4',
-                    )
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-b4=2, KR=1.5, a1=1.5, a0=2, a3=1.5, a2=2, b1=1.5, b2=1, b3=1.5, a4=2.5,
-inp=InteractiveInput(name='End-Product-Inhibition4', 
-equations=['X1. = (a0)*(DR^-1) + (0.00000000372)*(a1)*(KR^-g)*(X5^g)*(DR^-1)  - b1*(X1)^h',
-                                'X2. =(a2)*(X1) - b2*(X2)',
-                                'X3. =(a3)*(X2) - b3*(X3)',
-                                'X4. =(a4)*(X3) - b4*(X4)',
-                                'X5. =(a5)*(X4) - b5*(X5)',
-                                '0 = 1 + (KR^-g)*(X5^g) - DR'],
-                     auxiliary_variables=['DR'],
-                     kinetic_orders=['g=3.66', 'h=1'],
-                     constraints = ['KR >1'],
-                     xaxis='a0',
-                     yaxis='b1',
-                    )
+
 
 
 
@@ -549,7 +513,7 @@ Permutations of indetity matrix.
 	Genotype Arithmetic.
 We only chose positive constraints. Step 5.
 l= (1,0,0,0,0,0,0,0,-g,1).
-	(dX_1)/dt=D^(-1) α_MAX+D^(-1) α_MIN∗ K_1^(-g) X_1^g-β_1 X_1.
+	
 	Con(X_1)=
 1 0 0 0 0 0 0 0 0  0
 1 0 0 0 0 0 0 0 -g 1
