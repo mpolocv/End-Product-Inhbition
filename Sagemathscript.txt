@@ -1,0 +1,60 @@
+# File path (change this if needed)
+file_path = "OUT31_TF_DNAsage.txt"
+
+# File path — update this to your file location
+
+# Safe local namespace to store matrices
+namespace = {}
+
+# Use Sage globals so `Matrix`, `ZZ` are defined
+with open(file_path, "r") as f:
+    for line in f:
+        line = line.strip()
+        if line:
+            exec(line, globals(), namespace)  # ← FIXED: pass Sage globals here
+
+# Collect matrices, sorted by index (e.g. H1, H2, ..., H28)
+L = [namespace[k] for k in sorted(namespace, key=lambda x: int(x[1:]))]
+
+matrix_dict = {key: namespace[key] for key in sorted(namespace) if key.startswith("H")}
+matrix_names = list(matrix_dict.keys())
+print(eval(f"matrix_names[300]"))
+print(matrix_dict[eval(f"matrix_names[277]")])
+N= matrix_dict[eval(f"matrix_names[300]")]
+print(N.nrows())
+# Example usage
+#print(f"Loaded {len(L)} matrices.")
+#print("First matrix:\n", L[0])
+
+
+for j in range(len(L)):
+    print(f"\n--- Processing cone {j+1} ---")
+    
+    # Crear el cono a partir de los puntos
+    c = Cone(L[j])
+    M = matrix_dict[eval(f"matrix_names[j]")]
+    #M = eval(f"H{j + 1}")
+    # Obtener el cono dual
+    d = c.dual()
+    
+    # Obtener la base de Hilbert del cono dual
+    hilb = d.Hilbert_basis()
+    #hilb = matrix.hilbert(d)
+    # Convertir a matriz para facilitar el procesamiento
+    H = Matrix(hilb)
+
+    # Recorrer subconjuntos de 4 vectores consecutivos desde el fondo
+    for t in range(H.nrows() -(M.ncols() + 1)):
+        #k1 = H.nrows() - t - 3
+        #k2 = H.nrows() - t - 2
+        #k3 = H.nrows() - t - 1
+        #M = matrix_dict[eval(f"matrix_names[j+1]")]
+        #M = eval(f"H{179}")
+        B= H[t : M.ncols() + t, 0: ]
+        #print(B)
+        #B = Matrix([H.row(k1), H.row(k2), H.row(k3), H.row(k4)])
+        #B.det()
+        if abs(B.det()) == math.isclose(1, 0):
+             print(B)
+        #break
+            
