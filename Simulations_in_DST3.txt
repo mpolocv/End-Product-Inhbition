@@ -1,0 +1,196 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Design Space Toolbox v 3.0 Simulations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Simulations in DST3 software. (https://savageaulab.wordpress.com/design-space-and-the-design-space-toolbox/), after click Software and DOCKER IMAGE
+FOR THE DESIGN SPACE TOOLBOX V3
+
+Basic Usage of Docker Image DST3
+To use the DST3 via Docker follow these simple steps:
+
+1.- Install Docker
+
+2.- Open a terminal window (macOS and Linux) or Command Prompt (Microsoft Windows)
+
+3.- Download the DST3 image by executing following command line on the terminal window:
+
+docker pull savageau/dst3
+
+4.- Create a container by executing following command line:
+
+docker run -d -p 8888:8888 savageau/dst3
+
+5.- Open http://localhost:8888 in a browser window. If you are a Windows user and the webpage cannot be loaded, refer to additional instructions for Windows users below.
+
+docker run -d -p 8888:8888 −−mount type=bind,source=//c/Users,target=/Documents/host savageau/dst3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ONCE INSTALLED, OPEN A NEW NOTEBOOK AND COPY AND PASTE BELOW ANY CASE %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n= 3, g=8.0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+inp=InteractiveInput(name='End-Product-Inhibition3', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X3^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                '0 = 1 + (KR^-g)*(X3^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=8.0', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b3',
+                    )
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n=4, g= 4.0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+inp=InteractiveInput(name='End-Product-Inhibition4', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X4^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                '0 = 1 + (KR^-g)*(X4^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=4.0', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b4',
+                    )
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n= 5, g= 3.66 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+inp=InteractiveInput(name='End-Product-Inhibition5', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X5^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                '0 = 1 + (KR^-g)*(X5^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=3.66', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b5',
+                    )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n = 6, g= 2.40 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+
+inp=InteractiveInput(name='End-Product-Inhibition6', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X6^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                'X6. =474.1*(a6)*(X5) - 1.5*b6*(X6)',
+                                '0 = 1 + (KR^-g)*(X6^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=2.40', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b6',
+                    )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n= 7, g=2.0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+inp=InteractiveInput(name='End-Product-Inhibition7', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X7^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                'X6. =474.1*(a6)*(X5) - 1.5*b6*(X6)',
+                                'X7. =574.1*(a7)*(X6) - 1.5*b7*(X7)',
+                                '0 = 1 + (KR^-g)*(X7^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=2.0', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b7',
+                    )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n = 8, g= 1.86 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+
+inp=InteractiveInput(name='End-Product-Inhibition8', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X8^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                'X6. =474.1*(a6)*(X5) - 1.5*b6*(X6)',
+                                'X7. =574.1*(a7)*(X6) - 1.5*b7*(X7)',
+                                'X8. =674.1*(a8)*(X7) - 1.5*b8*(X8)',
+                                '0 = 1 + (KR^-g)*(X8^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=1.86', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b8',
+                    )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n= 9, g= 1.80 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+inp=InteractiveInput(name='End-Product-Inhibition9', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X9^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                'X6. =474.1*(a6)*(X5) - 1.5*b6*(X6)',
+                                'X7. =574.1*(a7)*(X6) - 1.5*b7*(X7)',
+                                'X8. =674.1*(a8)*(X7) - 1.5*b8*(X8)',
+                                'X9. =774.1*(a9)*(X8) - 1.5*b9*(X9)',
+                                '0 = 1 + (KR^-g)*(X9^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=1.80', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b9',
+                    )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASE n = 10, g=1.70 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import matplotlib as mpl
+mpl.use('Agg')
+from dspace.display.UI.interactive_input import InteractiveInput
+
+
+inp=InteractiveInput(name='End-Product-Inhibition10', 
+                     equations=['X1. = 270*(a0)*(DR^-1) + (0.000000000372)*(a1)*(KR^-g)*(X10^g)*(DR^-1)  - 1.50*b1*(X1)^h',
+                                'X2. =258*(a2)*(X1) - 1.5*b2*(X2)',
+                                'X3. =269.2*(a3)*(X2) - 1.8*b3*(X3)',
+                                'X4. =274.1*(a4)*(X3) - 1.5*b4*(X4)',
+                                'X5. =374.1*(a5)*(X4) - 1.5*b5*(X5)',
+                                'X6. =474.1*(a6)*(X5) - 1.5*b6*(X6)',
+                                'X7. =574.1*(a7)*(X6) - 1.5*b7*(X7)',
+                                'X8. =674.1*(a8)*(X7) - 1.5*b8*(X8)',
+                                'X9. =84.1*(a9)*(X8) - 1.5*b9*(X9)',
+                                'X10. =74.1*(a10)*(X9) - 1.5*b10*(X10)',
+                                '0 = 1 + (KR^-g)*(X10^g) - DR'],
+                     auxiliary_variables=['DR'],
+                     kinetic_orders=['g=1.70', 'h=1'],
+                     constraints = ['KR >1'],
+                     xaxis='a0',
+                     yaxis='b10',
+                    )
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
